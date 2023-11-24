@@ -2,7 +2,9 @@ package com.pmdm.actividad07pmdm
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -40,7 +42,6 @@ fun ItemHero(superhero: Superhero) {
     ) {
         Column(
             modifier = Modifier
-                .fillMaxWidth()
                 .padding(16.dp)
         ) {
             // Image with contentScale = ContentScale.Crop
@@ -56,14 +57,18 @@ fun ItemHero(superhero: Superhero) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Text components for superhero info
-            Text(text = superhero.superheroName)
-            Text(text = superhero.realName)
-
+            Row() {
+                Text(text = superhero.superheroName)
+            }
+            Row(horizontalArrangement = Arrangement.Center){
+                Text(text = superhero.realName)
+            }
             // Padding for the last text
             Spacer(modifier = Modifier.height(8.dp))
 
-            Text(text = superhero.publisher)
+            Row(horizontalArrangement = Arrangement.End) {
+                Text(text = superhero.publisher)
+            }
         }
     }
 }
